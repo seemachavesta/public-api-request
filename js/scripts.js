@@ -37,9 +37,8 @@ function formatDob(dob) {
  }
 
 // Creating HTML for Gallery
-function generateHTML(user){
-   user.results.forEach(data => {
-      userData.push(data)
+function generateHTML(data){
+   
       const {name, email, location:{city, state}, picture} = data;
          let htmlComponent = `<div class="card" data-id="${data.id.value}">
          <div class="card-img-container">
@@ -53,8 +52,6 @@ function generateHTML(user){
       </div>
       `
          gallery.insertAdjacentHTML('beforeend', htmlComponent);
-
-   })
       }
 
 function formatDob(dob) {
@@ -127,6 +124,12 @@ function toggleModel(user){
       
 }
 
+getJson().then(data => {
+   data.results.forEach(user => {
+      userData.push(user)
+      generateHTML(user);
+   })
+})
 // click event for displaying model
 gallery.addEventListener('click', (e) => {
    const card = e.target.parentElement.parentElement;
@@ -163,8 +166,16 @@ body.addEventListener('click', (e) => {
 
    }
 })
-// Display the gallery;
-getJson().then(generateHTML)
+searchContainer.addEventListener('keyup', () => {
+   const name = document.querySelector('#search-input').value;
+   const newData = userData.filter(info => {
+      return info.name.first.includes(name);
+   })
+   newData.forEach(user => {
+      generateHTML(user)
+   })
+})
+
 
 
 
