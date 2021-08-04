@@ -57,14 +57,14 @@ function generateHTML(user){
    })
       }
 
-      function formatDob(dob) {
-         const dobRegex = /\d{4}-\d{2}-\d{2}/gm
-         dob = dob.match(dobRegex)
-         const year = dob[0].split('-')[0]
-         const month = dob[0].split('-')[1]
-         const day = dob[0].split('-')[2]
-         return `${ month }/${ day }/${ year }`
-       }
+function formatDob(dob) {
+   const dobRegex = /\d{4}-\d{2}-\d{2}/gm
+   dob = dob.match(dobRegex)
+   const year = dob[0].split('-')[0]
+   const month = dob[0].split('-')[1]
+   const day = dob[0].split('-')[2]
+   return `${ month }/${ day }/${ year }`
+   }
 // Crating creating HTML element for model;
 function generateModel(user){
       const {name, picture, email, location, phone, dob} =  user;
