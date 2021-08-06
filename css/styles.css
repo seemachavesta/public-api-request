@@ -131,6 +131,8 @@ header h1 {
 
 .card:hover{
     opacity: 1;
+    background: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(50, 50, 50, 0.9);
 }
 .card:hover .card-text {
     opacity: 1;

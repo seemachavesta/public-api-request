@@ -42,7 +42,7 @@ function toggleModel(user){
    const modalInfo = document.querySelector('.modal-info-container').children;
    for(let i = 0; i < modalInfo.length; i++){
       const info = modalInfo[i];
-
+       console.log(info)
       if(info.className == 'modal-img'){
          info.src = picture.large;
       }
@@ -111,16 +111,14 @@ body.addEventListener('click', (e) => {
 searchContainer.addEventListener('keyup', () => {
    const value = document.querySelector('#search-input').value.toLowerCase();
    const card = document.querySelectorAll('.card');
-   
+
    for(let i = 0; i < card.length; i++){
-      
      let h3 = card[i].querySelector('h3');
      let name = h3.textContent.toLowerCase();
      if(name.includes(value)){
         card[i].style.display = '';
      }else{
         card[i].style.display = 'none';
-        
      }
    }
 })
